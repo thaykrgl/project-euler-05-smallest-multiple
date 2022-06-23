@@ -1,5 +1,5 @@
 // Öklid algoritması kullanarak iki sayının en büyük ortak bölenini hesaplayan fonksiyon   
-const gcd = (num1,num2) => {
+const greatestCommonDivider = (num1,num2) => {
     while (num2 != 0) {
           let result = num1 % num2;
           num1 = num2;
@@ -9,8 +9,8 @@ const gcd = (num1,num2) => {
 };
 
 // İki sayının en küçük ortak katını hesaplayan fonksiyon
-const lcm = (num1, num2) => {
-    return ((num1) / gcd(num1, num2)) * num2;
+const leastCommonMultiple = (num1, num2) => {
+    return ((num1) / greatestCommonDivider(num1, num2)) * num2;
 }
 
 /* Belirlemiş olduğumuz değere kadar devam edecek olan for döngümüzle beraber ikişerli şekilde ekok hesaplayarak 
@@ -20,7 +20,7 @@ artık elimizde n değerine kadar olan sayıların en küçük ortak katı bulun
 const smallestMultiple = n => {
         let result = 1;
         for (let i = 1; i <= n; i++) {
-            result = lcm(result, i);
+            result = leastCommonMultiple(result, i);
         }
         return result;
 }
