@@ -1,16 +1,16 @@
 // Öklid algoritması kullanarak iki sayının en büyük ortak bölenini hesaplayan fonksiyon   
-const ebob = (sayi1,sayi2) => {
-    while (sayi2 != 0) {
-          let sonuc = sayi1 % sayi2;
-          sayi1 = sayi2;
-          sayi2 = sonuc;
+const gcd = (num1,num2) => {
+    while (num2 != 0) {
+          let result = num1 % num2;
+          num1 = num2;
+          num2 = result;
         }
-        return sayi1;
+        return num1;
 };
 
 // İki sayının en küçük ortak katını hesaplayan fonksiyon
-const ekok = (sayi1, sayi2) => {
-    return ((sayi1) / ebob(sayi1, sayi2)) * sayi2;
+const lcm = (num1, num2) => {
+    return ((num1) / gcd(num1, num2)) * num2;
 }
 
 /* Belirlemiş olduğumuz değere kadar devam edecek olan for döngümüzle beraber ikişerli şekilde ekok hesaplayarak 
@@ -20,7 +20,7 @@ artık elimizde n değerine kadar olan sayıların en küçük ortak katı bulun
 const smallestMultiple = n => {
         let result = 1;
         for (let i = 1; i <= n; i++) {
-            result = ekok(result, i);
+            result = lcm(result, i);
         }
         return result;
 }
